@@ -1,0 +1,42 @@
+<mat-list role="list">
+    <div fxLayout="row" fxLayoutAlign="center" style="padding: .5rem 0;">
+        <img mat-line src="assets/images/logo.png" alt="logo" width="120" style="cursor: pointer;" (click)="navigateToHome()">
+    </div>
+    <mat-divider></mat-divider>
+    <mat-list-item>
+        <mat-icon mat-list-icon>manage_accounts</mat-icon>
+        <a mat-line [routerLink]="'/usuarios'">
+            Empleados
+        </a>
+    </mat-list-item>
+    <mat-list-item>
+        <mat-icon mat-list-icon>people</mat-icon>
+        <a mat-line [routerLink]="'/clientes'">
+            Clientes
+        </a>
+    </mat-list-item>
+    <mat-list-item>
+        <mat-icon mat-list-icon>assignment_ind</mat-icon>
+        <a mat-line [routerLink]="'/roles'">
+            Roles
+        </a>
+    </mat-list-item>
+    <mat-list-item>
+        <mat-icon mat-list-icon>people</mat-icon>
+        <a mat-line [routerLink]="'/proveedores'">
+            Proveedores
+        </a>
+    </mat-list-item>
+    <mat-list-item>
+        <mat-icon mat-list-icon>inventory</mat-icon>
+        <a mat-line [routerLink]="'/productos'">
+            Productos
+        </a>
+    </mat-list-item>
+    <mat-list-item>
+        <mat-icon mat-list-icon>receipt</mat-icon>
+        <a mat-line [routerLink]="'/facturas'">
+            Facturas
+        </a>
+    </mat-list-item>
+</mat-list>

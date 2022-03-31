@@ -1,0 +1,22 @@
+<h2 mat-dialog-title>{{isEditable ? 'Editar' : 'Crear'}} rol</h2>
+<form (ngSubmit)="save()">
+    <mat-dialog-content class="mat-typography">
+        <div class="card">
+            <div class="card-body">
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="basic-addon1">Descripción</span>
+                    <textarea type="text" class="form-control w-full" matInput [(ngModel)]="rol.descripcion" name="descripcion"></textarea>
+                </div>
+                <button type="button" class="btn btn-primary mb-3" (click)="rol.funciones.push({descripcion: ''})">Agregar función</button>
+                <div class="input-group mb-3" *ngFor="let funcion of rol.funciones; index as i">
+                    <button type="button" class="btn btn-danger" (click)="rol.funciones.splice(i, 1)"> - </button>
+                    <input type="text" class="form-control w-full" matInput [(ngModel)]="rol.funciones[i].descripcion" name="{{'funcion' + i}}">
+                </div>
+            </div>
+        </div>
+    </mat-dialog-content>
+    <mat-dialog-actions align="end">
+        <button mat-button mat-dialog-close>Cancelar</button>
+        <button type="submit" mat-button [disabled]="!canCreate">{{isEditable ? 'Actualizar' : 'Guardar'}}</button>
+    </mat-dialog-actions>
+</form>

@@ -1,0 +1,31 @@
+<div fxLayout="row" fxLayoutAlign="center center">
+    <mat-card>
+        <div fxLayout="row" fxLayoutAlign="center" style="margin-bottom: 2rem;">
+            <img mat-line src="assets/images/logo.png" alt="logo" width="160">
+        </div>
+
+        <mat-card-title>Iniciar Sesión</mat-card-title>
+        <mat-card-subtitle>Para iniciar sesión ingresa tus credenciales.</mat-card-subtitle>
+
+        <form (ngSubmit)="login()">
+            <mat-form-field class="w-full" appearance="fill" name="usuario" [(ngModel)]="credencial.Usuario" ngDefaultControl required>
+                <mat-label>Usuario</mat-label>
+                <mat-icon matPrefix>person</mat-icon>
+                <input type="email" matInput placeholder="usuario@reenvasesboyaca.com">
+            </mat-form-field>
+            <mat-form-field class="w-full" appearance="fill" name="clave" [(ngModel)]="credencial.Clave" ngDefaultControl required>
+                <mat-label>Contraseña</mat-label>
+                <mat-icon matPrefix>lock</mat-icon>
+                <input type="password" matInput>
+            </mat-form-field>
+
+            <div fxLayout="row" fxLayoutAlign="end" style="margin-bottom: 2rem;">
+                <a routerLink="/login/reset-password">
+                    Olvidaste tu contraseña?
+                </a>
+            </div>
+
+            <button mat-raised-button color="primary" class="w-full" [disabled]="!credencial.Usuario && !credencial.Clave">Ingresar</button>
+        </form>
+    </mat-card>
+</div>

@@ -1,0 +1,31 @@
+<div style="display: flex;" class="h-full">
+    <mat-drawer-container class="example-container" style="flex: 1 1 auto;" autosize>
+        <mat-drawer #drawer class="example-sidenav" mode="side">
+            <app-sidenav></app-sidenav>
+        </mat-drawer>
+
+        <mat-toolbar>
+            <button mat-icon-button mat-button (click)="drawer.toggle()" class="example-icon">
+                <mat-icon>menu</mat-icon>
+            </button>
+            <div fxLayout="row" fxLayoutAlign="space-between" style="width: 100%;">
+                <span>Reenvases Boyacá Admin</span>
+                <div>
+                    <span>{{ usuario?.nombre }} {{ usuario?.apellido }}</span>
+                    <button mat-icon-button [matMenuTriggerFor]="menu">
+                        <mat-icon>person</mat-icon>
+                    </button>
+                </div>
+            </div>
+        </mat-toolbar>
+
+        <router-outlet></router-outlet>
+    </mat-drawer-container>
+</div>
+
+<mat-menu #menu="matMenu">
+    <button mat-menu-item (click)="logOut()">
+        <mat-icon>logout</mat-icon>
+        Cerrar Sesión
+    </button>
+</mat-menu>
