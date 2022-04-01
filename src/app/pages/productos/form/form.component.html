@@ -1,1 +1,41 @@
-<p>form works!</p>
+<h2 mat-dialog-title>{{isEditable ? 'Editar' : 'Crear'}} producto</h2>
+<form (ngSubmit)="save()">
+    <mat-dialog-content class="mat-typography">
+        <div class="card">
+            <div class="card-body">
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="basic-addon1">Descripción</span>
+                    <input type="text" class="form-control w-full" matInput [(ngModel)]="producto.descripcion" name="descripcion">
+                </div>
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="basic-addon1">Código</span>
+                    <input type="text" class="form-control w-full" matInput [(ngModel)]="producto.codigo" name="codigo">
+                </div>
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="basic-addon1">Categoría</span>
+                    <select class="form-select w-full" [(ngModel)]="producto.idCategoria" name="idCategoria">
+                        <option *ngFor="let categoria of categorias" [value]="categoria.idCategoria">{{ categoria.nombre }}</option>
+                      </select>
+                </div>
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="basic-addon1">Proveedor</span>
+                    <select class="form-select w-full" [(ngModel)]="producto.idProveedor" name="idProveedor">
+                        <option *ngFor="let proveedor of proveedores" [value]="proveedor.idProveedor">{{ proveedor.nombre }}</option>
+                      </select>
+                </div>
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="basic-addon1">Existencias</span>
+                    <input type="number" class="form-control w-full" matInput [(ngModel)]="producto.existencias" name="existencias">
+                </div>
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="basic-addon1">Precio</span>
+                    <input type="number" class="form-control w-full" matInput [(ngModel)]="producto.precio" name="precio">
+                </div>
+            </div>
+        </div>
+    </mat-dialog-content>
+    <mat-dialog-actions align="end">
+        <button mat-button mat-dialog-close>Cancelar</button>
+        <button type="submit" mat-button [disabled]="!canCreate">{{isEditable ? 'Actualizar' : 'Guardar'}}</button>
+    </mat-dialog-actions>
+</form>

@@ -3,7 +3,7 @@ import { Factura } from "src/app/shared/layout/models/factura";
 export const facturas: Factura[] = [
     {
         idFactura: 1,
-        numerofactura: 'F001',
+        numeroFactura: 'F001',
         fechaEmision: '2020-01-01',
         idCliente: 1,
         cliente: {
@@ -17,7 +17,7 @@ export const facturas: Factura[] = [
     },
     {
         idFactura: 2,
-        numerofactura: 'F002',
+        numeroFactura: 'F002',
         fechaEmision: '2020-01-02',
         idCliente: 1,
         cliente: {
@@ -31,7 +31,7 @@ export const facturas: Factura[] = [
     },
     {
         idFactura: 3,
-        numerofactura: 'F003',
+        numeroFactura: 'F003',
         fechaEmision: '2020-01-03',
         idCliente: 1,
         cliente: {
